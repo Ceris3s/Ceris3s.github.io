@@ -24,7 +24,7 @@
 <meta property="og:description" content="内核源码下载内核源码下载渠道： （1）git clone 内核，在git checkout某一个分支：git clone https:&#x2F;&#x2F;github.com&#x2F;torvalds&#x2F;linux.git 适用于git commit补丁前的漏洞调试 （2）https:&#x2F;&#x2F;cdn.kernel.org&#x2F;pub&#x2F;linux&#x2F;kernel&#x2F;v4.x&#x2F; 适用于4.x.x版本的内核，下不到更小的发行版 （3）sud">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-27T04:52:57.000Z">
-<meta property="article:modified_time" content="2021-10-27T15:08:35.032Z">
+<meta property="article:modified_time" content="2021-12-17T14:52:40.998Z">
 <meta property="article:author" content="Cerises">
 <meta property="article:tag" content="LinuxKernel">
 <meta name="twitter:card" content="summary_large_image">
@@ -196,7 +196,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      8.1k 字
+      8.2k 字
     </span>
   
 
@@ -205,7 +205,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      25 分钟
+      26 分钟
     </span>
   
 
@@ -246,6 +246,12 @@
 
 <p>一般选择方式1，找到漏洞引入的commit，切换过去。或者切到漏洞补丁的commit，然后将补丁手动注释，或者是git checkout patch_commit_id~1，切到补丁的上一个commit</p>
 <p>也可以下载<a target="_blank" rel="noopener" href="http://security.ubuntu.com/ubuntu/pool/main/l/linux/">http://security.ubuntu.com/ubuntu/pool/main/l/linux/</a> 中的linux-image-*-*amd64.deb包，解压里面有bzImage，如果能找到对应的vmlinux带符号镜像，那就可以直接调了，不然要想打断点调试，就得编译内核来获取镜像。</p>
+<p>国内clone的很慢，可以用清华的源：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/linux.git/">https://mirrors.tuna.tsinghua.edu.cn/help/linux.git/</a></p>
+<p>克隆主线 linux 代码，使用</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">git clone https:<span class="hljs-regexp">//mi</span>rrors.tuna.tsinghua.edu.cn<span class="hljs-regexp">/git/</span>linux.git<br></code></pre></td></tr></table></figure>
+
+
+
 <h2 id="linux内核编译"><a href="#linux内核编译" class="headerlink" title="linux内核编译"></a>linux内核编译</h2><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs gauss"><span class="hljs-built_in">make</span> mrproper  <span class="hljs-meta">#清理下</span><br><br><br><span class="hljs-built_in">make</span> defconfig<br><span class="hljs-built_in">make</span> menuconfig<br><span class="hljs-built_in">make</span> -j8<br></code></pre></td></tr></table></figure>
 
 <p>（1）先make defconfig，获取默认的config，这样的config配置少，可以极大提高编译速度，一般几分钟就好了。</p>
