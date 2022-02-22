@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>Ubuntu issues</title>
+    <link href="/2022/02/22/ubuntu_issues/"/>
+    <url>/2022/02/22/ubuntu_issues/</url>
+    
+    <content type="html"><![CDATA[<h2 id="network"><a href="#network" class="headerlink" title="network"></a>network</h2><p>restart your network regardless network management configuration settings:</p><figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coq">sudo netplan <span class="hljs-built_in">apply</span><br></code></pre></td></tr></table></figure><h5 id="Network-restart-for-networkd-managed-systems"><a href="#Network-restart-for-networkd-managed-systems" class="headerlink" title="Network restart for networkd managed systems"></a>Network restart for networkd managed systems</h5><p>The following commands will restart network interface enp0s3</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros">$ sudo<span class="hljs-built_in"> ip </span>link <span class="hljs-builtin-name">set</span> enp0s3 down<br>$ sudo<span class="hljs-built_in"> ip </span>link <span class="hljs-builtin-name">set</span> enp0s3 up<br></code></pre></td></tr></table></figure><h5 id="Network-restart-for-NetworkManager-managed-systems"><a href="#Network-restart-for-NetworkManager-managed-systems" class="headerlink" title="Network restart for NetworkManager managed systems"></a>Network restart for NetworkManager managed systems</h5><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cmake">$ sudo nmcli networking <span class="hljs-keyword">off</span><br>$ sudo nmcli networking <span class="hljs-keyword">on</span><br></code></pre></td></tr></table></figure><p>this works for me, the network works again.</p><p>Alternatively you can try to restart your network with System V init script:</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">$ sudo <span class="hljs-regexp">/etc/i</span>nit.d/network-manager restart<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Fuzzing linux kernel with syzkaller</title>
     <link href="/2022/02/20/syzkaller-fuzzing/"/>
     <url>/2022/02/20/syzkaller-fuzzing/</url>
