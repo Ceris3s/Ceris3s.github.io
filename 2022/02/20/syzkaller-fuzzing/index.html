@@ -13,10 +13,10 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="Cerises">
   <meta name="keywords" content="">
-  <meta name="description" content="安装基本软件12345678910111213sudo apt-get install debootstrapsudo apt install qemu-kvmsudo apt-get install subversionsudo apt-get install gitsudo apt-get install makesudo apt-get install qemusudo apt instal">
+  
+    <meta name="description" content="安装基本软件12345678910111213sudo apt-get install debootstrapsudo apt install qemu-kvmsudo apt-get install subversionsudo apt-get install gitsudo apt-get install makesudo apt-get install qemusudo apt instal">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fuzzing linux kernel with syzkaller">
 <meta property="og:url" content="https://ceris3s.github.io/2022/02/20/syzkaller-fuzzing/index.html">
@@ -31,6 +31,7 @@
 <meta property="article:author" content="Cerises">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://ceris3s.github.io/2022/02/20/syzkaller-fuzzing/2022-02-18_215305.png">
+  
   
   <title>Fuzzing linux kernel with syzkaller - blog</title>
 
@@ -69,7 +70,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"ceris3s.github.io","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"ceris3s.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -208,7 +209,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      33 分钟
+      34 分钟
     </span>
   
 
@@ -592,7 +593,7 @@
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
   </script>

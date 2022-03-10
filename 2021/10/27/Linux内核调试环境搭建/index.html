@@ -13,10 +13,10 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
   <meta name="author" content="Cerises">
   <meta name="keywords" content="">
-  <meta name="description" content="内核源码下载内核源码下载渠道： （1）git clone 内核，在git checkout某一个分支：git clone https:&#x2F;&#x2F;github.com&#x2F;torvalds&#x2F;linux.git 适用于git commit补丁前的漏洞调试 （2）https:&#x2F;&#x2F;cdn.kernel.org&#x2F;pub&#x2F;linux&#x2F;kernel&#x2F;v4.x&#x2F; 适用于4.x.x版本的内核，下不到更小的发行版 （3）sud">
+  
+    <meta name="description" content="内核源码下载内核源码下载渠道： （1）git clone 内核，在git checkout某一个分支：git clone https:&#x2F;&#x2F;github.com&#x2F;torvalds&#x2F;linux.git 适用于git commit补丁前的漏洞调试 （2）https:&#x2F;&#x2F;cdn.kernel.org&#x2F;pub&#x2F;linux&#x2F;kernel&#x2F;v4.x&#x2F; 适用于4.x.x版本的内核，下不到更小的发行版 （3）sud">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux内核调试环境搭建">
 <meta property="og:url" content="https://ceris3s.github.io/2021/10/27/Linux%E5%86%85%E6%A0%B8%E8%B0%83%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/index.html">
@@ -28,6 +28,7 @@
 <meta property="article:author" content="Cerises">
 <meta property="article:tag" content="LinuxKernel">
 <meta name="twitter:card" content="summary_large_image">
+  
   
   <title>Linux内核调试环境搭建 - blog</title>
 
@@ -66,7 +67,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"ceris3s.github.io","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"ceris3s.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -565,7 +566,7 @@
       var typing = Fluid.plugins.typing;
       var title = document.getElementById('subtitle').title;
       
-      typing(title)
+        typing(title);
       
     })(window, document);
   </script>
